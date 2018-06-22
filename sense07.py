@@ -1,20 +1,15 @@
+# Print formated Temperature with units
+
 # Import SenseHAT library module
 from sense_hat import SenseHat
 sense = SenseHat()
 
-# Create RGB colours
-red = (255,0,0)
-blue = (0,0,255)
+# Function to format Temperature sensor value
+def formatTemperature():
+    temperature = sense.get_temperature() - 10
+    temperature = round(temperature)
+    temperature = str(temperature) + "C"
+    return temperature
 
-# Function displaying calibrated celsius temperature
-def displayCalibratedTemp():
-    calibration_value = 10
-    temp_c = sense.get_temperature()- calibration_value
-    temp_c = int(round(temp_c))
-    message = str(temp_c) + "C"
-    if temp_c > 20:
-        sense.show_message(message,text_colour=red)
-    else:
-        sense.show_message(message,text_colour=blue)
-
-displayCalibratedTemp()
+# Print nicely formated temperature value with units
+print(formatTemperature())
