@@ -39,4 +39,5 @@ while True:
       
       # Wait a while
       sleep(0.5)
+      sense.clear()
 
