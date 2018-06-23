@@ -13,3 +13,10 @@ def formatTemperature():
 
 # Print nicely formated temperature value with units
 print(formatTemperature())
+
+# Print a more descriptive temperature
+print("Room temperature is: " + formatTemperature())
+
+# Display temperature in red on LED Matrix
+red = (255,0,0)
+sense.show_message(formatTemperature(),text_colour=red)
