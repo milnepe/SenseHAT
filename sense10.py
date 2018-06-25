@@ -15,7 +15,7 @@ def calibrateValue(value, calibration_value=0):
     calibrated_value = value + calibration_value
     return calibrated_value
 
-# Function returning value as string rounded to whole number 
+# Function returning value as string rounded to whole number
 def formatValue(value, units=""):
     value = round(value)
     value_str = str(value) + units
