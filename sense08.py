@@ -1,18 +1,34 @@
-# Display Temperature, Pressure & Humidity on LED Matrix
-
-# Import SenseHAT library module
+# Print formatted sensor values
+ 
 from sense_hat import SenseHat
 sense = SenseHat()
 
-# Function to format sensor value as a message
-def formatValue(get_sensor_value, calibration_value=0, units=None):
-    value = get_sensor_value - calibration_value
+# Function returning value as string rounded to whole number
+def formatValue(value, units=""):
     value = round(value)
-    value = str(value) + units
-    return value
+    value_str = str(value) + units
+    return value_str 
 
-# Display formtated sensor readings on LED Matrix
-sense.clear()
-sense.show_message(formatValue(sense.get_temperature(), 10, "C"))
-sense.show_message(formatValue(sense.get_pressure(), 0, "kPa"))
-sense.show_message(formatValue(sense.get_humidity(), 0, "%"))
+# Get humidity value  
+humidity = sense.get_humidity()
+
+# Get pressure value 
+pressure = sense.get_pressure()
+
+# Print raw humidity value
+print(humidity)
+
+# Print formated relative humidity
+print(formatValue(humidity,"%"))
+ 
+# Display relative humidity on LED Matrix
+sense.show_message(formatValue(humidity,"%"))
+
+# Print raw pressure value
+print(pressure)
+
+# Print formated pressure in kPa
+print(formatValue(pressure,"kPa"))
+ 
+# Display relative pressure on LED Matrix
+sense.show_message(formatValue(pressure,"kPa"))

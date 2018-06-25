@@ -1,22 +1,24 @@
-# Print formated Temperature with units
+# Print calibrated sensor values
 
-# Import SenseHAT library module
 from sense_hat import SenseHat
 sense = SenseHat()
 
-# Function to format Temperature sensor value
-def formatTemperature():
-    temperature = sense.get_temperature() - 10
-    temperature = round(temperature)
-    temperature = str(temperature) + "C"
-    return temperature
+# Function returning calibrated value
+def calibrateValue(value, calibration_value=0):
+    value = value + calibration_value
+    return value
 
-# Print nicely formated temperature value with units
-print(formatTemperature())
+# Get a raw temperature value
+temperature = sense.get_temperature()
 
-# Print a more descriptive temperature
-print("Room temperature is: " + formatTemperature())
+# Print raw temperature value
+print(temperature)
 
-# Display temperature in red on LED Matrix
-red = (255,0,0)
-sense.show_message(formatTemperature(),text_colour=red)
+# Print calibrated temperature using defaut calibration (no calibration)
+print(calibrateValue(temperature))
+
+# Print temperature increased by +2 degrees celsius
+print(calibrateValue(temperature, 2))
+
+# Print temperature reduced by -10 degrees celsius
+print(calibrateValue(temperature,-10))
