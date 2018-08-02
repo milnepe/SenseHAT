@@ -20,9 +20,9 @@ earth_radius = {'miles': 3960, 'kilometres': 6373}
 # https://www.johndcook.com/lat_long_details.html
 # ψ = arccos(sin φ1 sin φ2 cos(θ1-θ2) + cos φ1 cos φ2)
 # Where:
-# Co-ordinates MUST be expressed as latitude N (S is negative), longitude E (W is negative)
+# Coordinates MUST be expressed as latitude N (S is negative), longitude E (W is negative)
 # φ (phi) is angle in radians from north pole down to geographical location
-# θ (theta) is latitude in radians EAST from maridian to geographical location
+# θ (theta) is latitude in radians EAST from meridian to geographical location
 
 def spherical_distance(coord0, coord1, radius):
 
