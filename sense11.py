@@ -7,10 +7,10 @@
 
 import math
 
-# Witney, UK 51.7859° N, 1.4851° W
+# Witney, UK 51.7859N, 1.4851W
 base_coordinates = {'location': "Witney", 'country': "UK", 'lat': 51.7859, 'long': -1.4851}
 
-# ISS, Greenwich, UK 51.4826° N, 0.0077° W
+# ISS, Greenwich, UK 51.4826N, 0.0077W
 iss_coordinates = {'location': "London", 'country': "UK", 'lat': 51.4826, 'long': -0.0077}
 
 # Earths radius in Miles or Kilometres
@@ -24,7 +24,7 @@ earth_radius = {'miles': 3960, 'kilometres': 6373}
 # φ (phi) is angle in radians from north pole down to geographical location
 # θ (theta) is latitude in radians EAST from maridian to geographical location
 
-def spherical_distance(coord0, coord1, radius):
+def get_radial_distance(coord0, coord1, radius):
 
 	# Calculate number of Radians per Degree - 2 * pi / 360
 	degrees_to_radians = math.pi / 180.0
@@ -41,8 +41,8 @@ def spherical_distance(coord0, coord1, radius):
 	return arc * radius
 
 # Test
-distance = spherical_distance(base_coordinates, iss_coordinates, earth_radius['kilometres'])
+distance = get_radial_distance(base_coordinates, iss_coordinates, earth_radius['kilometres'])
 print(distance, "km")
-distance = spherical_distance(base_coordinates, iss_coordinates, earth_radius['miles'])
+distance = get_radial_distance(base_coordinates, iss_coordinates, earth_radius['miles'])
 print(distance, "m")
 

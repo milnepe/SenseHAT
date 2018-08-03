@@ -30,7 +30,7 @@ earth_radius = {'miles': 3960, 'kilometres': 6373}
 # φ (phi) is angle in radians from north pole down to geographical location
 # θ (theta) is latitude in radians EAST from maridian to geographical location
 
-def spherical_distance(coord0, coord1, radius):
+def get_radial_distance(coord0, coord1, radius):
 
 	# Calculate number of Radians per Degree - 2 * pi / 360
 	degrees_to_radians = math.pi / 180.0
@@ -64,7 +64,7 @@ def format_value(value, units=""):
 while True:
     # Calculate distance
     iss_coordinates = get_iss_coordinates(url)  
-    distance = spherical_distance(base_coordinates, iss_coordinates, earth_radius['miles'])
+    distance = get_radial_distance(base_coordinates, iss_coordinates, earth_radius['miles'])
     #distance = 1000
     # Set colour according to how far ISS is from base
     if distance < 800:

@@ -29,7 +29,7 @@ earth_radius = {'miles': 3960, 'kilometres': 6373}
 # φ (phi) is angle in radians from north pole down to geographical location
 # θ (theta) is latitude in radians EAST from maridian to geographical location
 
-def radial_distance(coord0, coord1, radius):
+def get_radial_distance(coord0, coord1, radius):
 
 	# Calculate number of Radians per Degree - 2 * pi / 360
 	degrees_to_radians = math.pi / 180.0
@@ -48,7 +48,7 @@ def radial_distance(coord0, coord1, radius):
 flag = ""
 d = 25000
 for c in capital_coordinates:
-	distance = radial_distance(iss_coordinates, c, earth_radius['miles'])
+	distance = get_radial_distance(iss_coordinates, c, earth_radius['miles'])
 	if distance <= d:
 		d = distance
 		flag = c['country']
